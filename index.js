@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import db from "./utils/db.js";  // kahi baar .js likhna pdega
+import cookieParser from "cookie-parser";
 
 // import all routes
 import userRoutes from "./routes/user.routes.js";
@@ -18,6 +19,7 @@ app.use(cors({
 
 app.use(express.json());  // to accept json files
 app.use(express.urlencoded({extended:true}));
+app.use(cookieParser());
 const port=process.env.PORT || 4000;
 
 // connect to db
